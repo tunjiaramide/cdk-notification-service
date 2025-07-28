@@ -77,7 +77,7 @@ export class EmailServiceCdkStack extends cdk.Stack {
     // create api integration
     const apiIntegration = new apigateway.LambdaIntegration(createInquiryFunction)
 
-    const newInquiries = restApi.root.addResource('inquiries');
+    const newInquiries = restApi.root.addResource('inquiries').addResource('new');
     newInquiries.addMethod('POST', apiIntegration, { authorizationType: apigateway.AuthorizationType.NONE });
 
   }
